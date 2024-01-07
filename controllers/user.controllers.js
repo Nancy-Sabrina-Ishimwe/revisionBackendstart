@@ -19,4 +19,4 @@ add ({newhouseName,newemail,newhouseType}){
 
 };
 
-const house1 = new House('fghhj','hgdf','fdsss')
+const house1 = new House('fghhj','hgdf','fdsss') 
