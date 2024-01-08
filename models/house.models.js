@@ -12,6 +12,8 @@ const Schema = mongoose.Schema();
     houseType:{required:true, type:String},
     picture:{required:true, type:String},
     role:{
+        type:String,
+        required:true,
         enum:{
         values: [" FirstHouser", "LastHouse","middleHouse"],
         message:"{values} is not a valid house",

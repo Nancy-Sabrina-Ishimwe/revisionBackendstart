@@ -5,7 +5,7 @@ const app = express();
 
 
 app.use(express.json());
-app.use('api/house1/House',houseRoutes)
+app.use('api/house1',allRoutes);
 
 
 
