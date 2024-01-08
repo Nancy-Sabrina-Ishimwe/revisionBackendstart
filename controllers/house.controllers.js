@@ -1,25 +1,18 @@
-const houseModel = require('../house/house.model');
+const houseModel = require('../models/house.models');
 
 const create = async (req, res, next) => {
-    try {
-console.log(req.body);
-// const savedHouse = await houseModel.create(req.body);
-const newHouse = new houseModel(req.body);
-const savedHouse = await newHouse.save();
-console.log(savedHouse); 
-
-await newHouse.save();
-
-
-
-res.status(201).json({
+try {
+    console.log(req.body);
+    // const savedHouse = await houseModel.create(req.body);
+    var savedHouse = await  houseModel.create(req.body);
+    res.status(201).json({
     message:'house created successfully',
     house:savedHouse
-});
+    })
 }catch (error) {
-res.status(500).send("failed to create");
+res.status(500).send(error.message);
 }
-}
+};
 const update = async (req, res, next) => {
     
 }

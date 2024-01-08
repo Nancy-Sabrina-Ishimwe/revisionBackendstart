@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const houseRoutes = require('./routes/house.routes');
+const allRoutes = require('./routes');
 const {connectDb} = require('./database/dbConnection');
 
 
@@ -10,7 +10,7 @@ connectDb();
 
 
 app.use(express.json());
-app.use('api/house1',allRoutes);
+app.use('/api/house1',allRoutes);
 
 
 

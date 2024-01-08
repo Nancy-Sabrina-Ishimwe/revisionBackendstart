@@ -1,10 +1,9 @@
 const express = require('express');
 const houseRoutes = require('./house.routes');
-const app = express();
-const allRoutes = express.Router();
+const allRoutes = express();
 
 
-const houseRoutes =  require('./house.routes');
+// const houseRoutes =  require('./house.routes');
 // const userRoutes =  require('./user.routes');
 
 
