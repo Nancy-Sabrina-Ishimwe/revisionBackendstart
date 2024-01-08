@@ -1,6 +1,6 @@
 const express = require('express');
 const{create,findByEmail,list,findById,remove,update} = require('../controllers/house.controllers');
-const houseRoutes = express.Routes();
+const houseRoutes = express.Router();
 
 houseRoutes.get('/list',list);
 
