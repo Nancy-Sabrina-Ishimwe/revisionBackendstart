@@ -12,18 +12,8 @@ try {
 }catch (error) {
 res.status(500).send(error.message);
 }
-};
-const update = async (req, res, next) => {
-    
 }
 
-const remove = async (req, res, next) => {
-    
-}
-
-const findById= async (req, res, next) => {
-    
-}
 const list = async (req, res, next) => {
     try{
 
@@ -33,10 +23,43 @@ const list = async (req, res, next) => {
     res.status(500).send("Error fetching house");
 }
 }
+
+const findById = async (req, res, next) => {
+    try{
+        console.log(req.query);
+        let houseId = req.query.id;
+        var findHouse = await houseModel.findById({houseId});
+        res.status(200).json({ house:findHouse});
+        }catch(error){
+        res.status(500).send(Error);
+    }
+}
 const findByEmail = async (req, res, next) => {
+    try{
+        let adminEmail = req.query.email;
+                var findHouse = await houseModel.findById({email:req.query.email});
+                res.status(200).json({ house:findHouse});
+                }catch(error){
+                res.status(500).send("Error fetching house");
+            } 
+}
+const update = async (req, res, next) => {
+    try{
+let adminEmail = req.query;
+        var findHouse = await houseModel.findById({email:adminEmail});
+        res.status(200).json({ house:findHouse});
+        }catch(error){
+        res.status(500).send("Error fetching house");
+    }
+}
+
+
+const remove = async (req, res, next) => {
     
 }
 
+
+
 module.exports = {
-    create,update,remove,findById,list,findByEmail
+    create,update,remove,list,findById,findByEmail
 }

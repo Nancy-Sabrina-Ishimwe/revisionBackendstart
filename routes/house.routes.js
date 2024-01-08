@@ -6,7 +6,7 @@ houseRoutes.get('/list',list);
 
 houseRoutes.post('/add',create);
 
-houseRoutes.get('/findByEmail',findByEmail);
+houseRoutes.get('/findById',findById);
 
 houseRoutes.get('/findByEmail',findByEmail);
 
