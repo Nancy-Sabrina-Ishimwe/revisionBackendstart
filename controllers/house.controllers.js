@@ -25,7 +25,13 @@ const findById= async (req, res, next) => {
     
 }
 const list = async (req, res, next) => {
-    
+    try{
+
+    var house = await houseModel.find({});
+    res.status(200).json({ house:house});
+    }catch(error){
+    res.status(500).send("Error fetching house");
+}
 }
 const findByEmail = async (req, res, next) => {
     
