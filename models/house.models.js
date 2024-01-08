@@ -2,10 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema();
 
 
-
-
  const houseSchema = new mongoose.Schema({
-    HouseName:{required:true, type:String},
+    houseName:{required:true, type:String},
     email:{required:true, type:String},
     password:{required:true, type:String},
     phone:{required:true, type:String},
@@ -20,7 +18,7 @@ const Schema = mongoose.Schema();
         }
     },
     createDate:{required:true, type:Date,default:new Date(),},
-    updateTime:{required:true, type:Date},
+    updateTime:{required:false, type:Date},
     
  });
  module.exports = mongoose.model('House', houseSchema);  

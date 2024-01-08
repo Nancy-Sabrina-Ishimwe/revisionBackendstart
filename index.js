@@ -1,7 +1,12 @@
 require('dotenv').config();
 const express = require('express');
 const houseRoutes = require('./routes/house.routes');
+const {connectDb} = require('./database/dbConnection');
+
+
+
 const app = express();
+connectDb();
 
 
 app.use(express.json());
