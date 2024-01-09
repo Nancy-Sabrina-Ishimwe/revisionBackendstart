@@ -45,19 +45,30 @@ const findByEmail = async (req, res, next) => {
 }
 const update = async (req, res, next) => {
     try{
-let adminEmail = req.query;
-        var findHouse = await houseModel.findById({email:adminEmail});
-        res.status(200).json({ house:findHouse});
+        var findHouse = await houseModel.findOneAndUpdate({_id:req.query.id}, req.body);
+        var house = await houseModel.find(findHouse._id);
+        res.status(200).json({house});
         }catch(error){
         res.status(500).send("Error fetching house");
     }
 }
 
-
 const remove = async (req, res, next) => {
-    
+    try{
+        var deletedHouse = await houseModel.findByIdAndDelete(req.query.id);
+        if(deletedHouse){
+            res.status(200).json({
+                message: "Deleted"
+            });
+        }
+        else{
+            res.status(404).send("house not found!");
+        }
+    }
+    catch(error){
+        res.status(500).send(error);
+    }
 }
-
 
 
 module.exports = {
